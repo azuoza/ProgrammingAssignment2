@@ -6,7 +6,7 @@
 
 makeCacheMatrix <- function(X = matrix()) {
     inv <- NULL
-    # if matrix is not set, settig a matrix
+    # if matrix is not set, set a matrix
     set <- function(y){
         X <<- y
         inv <<- NULL
@@ -26,7 +26,7 @@ makeCacheMatrix <- function(X = matrix()) {
 
 
 
-## expected input: square invertible matrix
+## expected input: list object
 ## expected output: matrix that is the inverse of 'x'
 
 cacheSolve <- function(X, ...) {

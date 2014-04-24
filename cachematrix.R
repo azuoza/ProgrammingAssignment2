@@ -1,8 +1,9 @@
-## Put comments here that give an overall description of what your
-## functions do
-
 ## This function creates a special "matrix" object that can cache 
 ## its inverse.
+
+## expected input: matrix object
+## expected output: list
+
 makeCacheMatrix <- function(X = matrix()) {
     inv <- NULL
     # if matrix is not set, settig a matrix
@@ -24,33 +25,27 @@ makeCacheMatrix <- function(X = matrix()) {
 }
 
 
-## Write a short comment describing this function
 
 ## expected input: square invertible matrix
 ## expected output: matrix that is the inverse of 'x'
 
-
 cacheSolve <- function(X, ...) {
     
-    # checking if matrix is squared
-#    if (dim(X)[1] != dim(X[2])){
-#       print("matrix is not square!!")
-#        return
-#    }
-    
+    # geting invers
     inv <- X$getinv()
     
-    #checking if invers is done 
+    # checking if invers is done 
     if(!is.null(inv)){
         message("getting cached matrix")
         return(inv)
     }
+    
+    # getting matrix to the data
     data <- X$get()
+    # inverting matrix
     inv <- solve(data, ...)
+    # "saving" inverted matrix
     X$setinv(inv)
-    inv
-    
-    
+    # printing inverted matrix to the screen
+    print(inv)    
 }
-cachemean(makeVector(1:10))
-cacheSolve(makeCacheMatrix(z))
